@@ -18,8 +18,8 @@ The Influence Index indicates how trends in Gen Z compare to those in Older Gene
 ### Example
 
 When prompted, input data for Gen Z and Older Generations. For instance:
-Enter number of data points (years): 2 
-Enter 2 values for Gen Z, separated by spaces: 80 82 
-Enter 2 values for Older Generations, separated by spaces: 10 60
+Enter number of data points (years): 3
+Enter 2 values for Gen Z, separated by spaces: 60 61 62 
+Enter 2 values for Older Generations, separated by spaces: 30 32 35
 
-The script will output the Influence Index based on these inputs.
+The script will output the Influence Index based on these inputs. In this case, the Influence index is 2.5, suggesting that trends in Gen Z and Older Generations are aligned over the specified years.

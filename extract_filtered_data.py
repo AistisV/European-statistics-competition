@@ -27,7 +27,6 @@ def filter_eurostat_data(input_file, output_file, age_groups=None, min_year=None
     # Fix "number b number" -> "number \t number" in memory
     fixed_content = re.sub(r'(\d+\.\d+)\s*b\s*(\d+\.\d+)', r'\1\t\2', raw_content)
 
-    # Load the fixed content into pandas directly
     df = pd.read_csv(StringIO(fixed_content), sep='\t', na_values=':')  # NaN for ": "
 
     # Split the metadata column
@@ -70,7 +69,7 @@ def filter_eurostat_data(input_file, output_file, age_groups=None, min_year=None
         (df[CONFIG['columns']['geo']].str.startswith(CONFIG['countries']['EU27_2020']) | df[CONFIG['columns']['geo']].str.contains(CONFIG['countries']['LT']))
     ]
 
-    # Apply age group filter if specified
+    # Apply age group filter
     if age_groups:
         pattern = '^(' + '|'.join(age_groups) + ')$'
         df_filtered = df_filtered[df_filtered[CONFIG['columns']['ind_type']].str.match(pattern)]
@@ -88,9 +87,7 @@ def filter_eurostat_data(input_file, output_file, age_groups=None, min_year=None
     # Reverse columns (most recent year first)
     df_filtered = df_filtered.iloc[:, ::-1]
 
-    # -----------------------------
-    # 🚨 NEW: Drop columns after missing data
-    # -----------------------------
+    # NDrop columns after missing data
 
     valid_year_columns = []
     for col in df_filtered.columns:
@@ -105,13 +102,10 @@ def filter_eurostat_data(input_file, output_file, age_groups=None, min_year=None
                      CONFIG['columns']['ind_type'], CONFIG['columns']['geo']] + valid_year_columns
     df_filtered = df_filtered[final_columns]
 
-    # -----------------------------
-
-    # Save the full filtered table
     df_filtered.to_csv(output_file, sep='\t', index=False)
 
     # -------------------
-    # Create readable tsv
+    # Create readable tsv files for graph making
     # -------------------
 
     # Helper to make chart-friendly format
@@ -149,7 +143,6 @@ def filter_eurostat_data(input_file, output_file, age_groups=None, min_year=None
     create_chart_friendly(df_filtered, CONFIG['countries']['EU27_2020'], CONFIG['output_folder'] + 'readable_EU.tsv')
     create_chart_friendly(df_filtered, CONFIG['countries']['LT'], CONFIG['output_folder'] + 'readable_LT.tsv')
 
-# Example usage:
 input_file = CONFIG['input_folder'] + 'estat_isoc_ci_ac_i.tsv'
 output_file = CONFIG['output_folder'] + 'filtered_data.tsv'
 user_input_age_groups = ['Y16_24', 'Y25_64']

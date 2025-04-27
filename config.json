@@ -1,0 +1,23 @@
+{
+    "input_folder": "input datasets/",
+    "output_folder": "outputs/",
+    "filtered_file": "outputs/filtered_data.tsv",
+    "columns": {
+        "metadata": "freq,indic_is,unit,ind_type,geo\\TIME_PERIOD",
+        "freq": "freq",
+        "indic_is": "indic_is",
+        "unit": "unit",
+        "ind_type": "ind_type",
+        "geo": "geo"
+    },
+    "age_groups": {
+        "Y16_24": "16-24 y/o",
+        "Y25_64": "25-64 y/o"
+    },
+    "countries": {
+        "EU27_2020": "EU27_2020",
+        "LT": "LT"
+    },
+    "indic_is_value": "I_IUCPP",
+    "unit_value": "PC_IND"
+}

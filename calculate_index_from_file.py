@@ -2,7 +2,7 @@ import pandas as pd
 import json
 
 # ----------------------------
-# LOAD CONFIGURATION FROM JSON FILE
+# Load configuration from file
 # ----------------------------
 
 def load_config(config_file='config.json'):
@@ -67,7 +67,7 @@ def calculate_influence_from_file(filtered_file):
             continue
 
         # Print first and last datapoints
-        print(f"\n📈 {region_name} statistics:")
+        print(f"\n{region_name} statistics:")
         print(f"Gen Z first year value: {gen_z[0]}")
         print(f"Gen Z last year value: {gen_z[-1]}")
         print(f"Older generations first year value: {older[0]}")
@@ -75,7 +75,7 @@ def calculate_influence_from_file(filtered_file):
 
         # Calculate and print influence index
         index = influence_index(gen_z, older)
-        print(f"📊 Influence Index for {region_name}: {index}")
+        print(f"Influence Index for {region_name}: {index}")
 
 # ----------------------------
 # Main

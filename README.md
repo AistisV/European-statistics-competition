@@ -1,6 +1,6 @@
 # European statistics competition
 
-This repository contains a Python script for **calculating the Influence Index** based on live user input. The Influence Index compares **Gen Z** (16-24 years) with **Older Adults** (25-64 years) over a specified period.
+This repository contains a Python script for **calculating the Influence Index** based on live user input. The Influence Index compares **Gen Z** with **Older Adults** over a specified period.
 
 ## Script
 
@@ -10,7 +10,7 @@ This repository contains a Python script for **calculating the Influence Index**
 
 1. Run the script.
 2. Enter the number of data points (years).
-3. Input the corresponding values for **Gen Z** (16-24 years) and **Older Generations** (25-64 years).
+3. Input the corresponding values for **Gen Z** and **Older Generations**.
 4. The script will output the calculated **Influence Index** based on your inputs.
 
 The Influence Index indicates how trends in Gen Z compare to those in Older Generations over time. Positive values suggest aligned trends, while negative values indicate opposing trends.

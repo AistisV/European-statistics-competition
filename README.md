@@ -4,7 +4,7 @@ This repository contains a Python script for **calculating the Influence Index**
 
 ## Script
 
-- **`influence_index_calculator.py`**: Allows the user to input data points (years) and the corresponding values for both Gen Z and Older Generations. It then calculates the Influence Index based on the provided data.
+- **`manual_calculation.py`**: Allows the user to input the number of data points (years) and the corresponding values for both Gen Z and Older Generations. It then calculates the Influence Index based on the provided data.
 
 ### How to Use
 
